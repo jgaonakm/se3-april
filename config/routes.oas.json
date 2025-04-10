@@ -1,0 +1,110 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "animal-api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/animals": {
+      "get": {
+        "tags": [
+          "Animal"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "15fb6571-a0c3-4ef9-9c42-4419f7d21e55",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net"
+            }
+          },
+          "policies": {
+            "inbound": [],
+            "outbound": []
+          }
+        }
+      }
+    },
+    "/animals/{size}": {
+      "get": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "size",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "a6c61aa5-46c4-4f4c-bc07-a496ed2c6b13",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://getting-started.zuplo.io"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "monetization-inbound"
+            ]
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "animal-api"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "196e1b2a-1d96-4d69-aacb-73bf41e5172a",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlRewriteHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "rewritePattern": "https://m.cuantocabron.com/images/templates/nothing-to-do-here-template.jpg"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
