@@ -40,36 +40,6 @@
     },
     {
       "handler": {
-        "export": "ChangeMethodInboundPolicy",
-        "module": "$import(@zuplo/runtime)",
-        "options": {
-          "method": "GET"
-        }
-      },
-      "name": "change-method-inbound",
-      "policyType": "change-method-inbound"
-    },
-    {
-      "handler": {
-        "export": "SetBodyInboundPolicy",
-        "module": "$import(@zuplo/runtime)",
-        "options": {
-          "body": ""
-        }
-      },
-      "name": "set-body-inbound",
-      "policyType": "set-body-inbound"
-    },
-    {
-      "handler": {
-        "export": "default",
-        "module": "$import(./modules/transform-body-inbound)"
-      },
-      "name": "transform-body-inbound",
-      "policyType": "custom-code-inbound"
-    },
-    {
-      "handler": {
         "export": "RateLimitInboundPolicy",
         "module": "$import(@zuplo/runtime)",
         "options": {
