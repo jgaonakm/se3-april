@@ -17,5 +17,5 @@ export default async function (request: ZuploRequest, context: ZuploContext) {
   /**
    * In this example, we're just going to return some content.
    */
-  return "What zup?";
+  return "What zup SEs?";
 }

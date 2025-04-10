@@ -22,7 +22,7 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net"
+              "baseUrl": "https://getting-started.zuplo.io"
             }
           },
           "policies": {
@@ -65,9 +65,8 @@
             }
           },
           "policies": {
-            "inbound": [
-              "monetization-inbound"
-            ]
+            "inbound": [],
+            "outbound": []
           }
         }
       }
@@ -93,37 +92,16 @@
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
-            "export": "urlRewriteHandler",
+            "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "rewritePattern": "https://m.cuantocabron.com/images/templates/nothing-to-do-here-template.jpg"
+              "baseUrl": "https://getting-started.zuplo.io"
             }
           },
           "policies": {
             "inbound": []
           }
         }
-      }
-    },
-    "/path-1": {
-      "x-zuplo-path": {
-        "pathMode": "open-api"
-      },
-      "get": {
-        "summary": "New Route",
-        "description": "",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "default",
-            "module": "$import(./modules/hello-world)",
-            "options": {}
-          },
-          "policies": {
-            "inbound": []
-          }
-        },
-        "operationId": "bcab0239-3bcb-4950-910a-3124ea9943eb"
       }
     }
   },
