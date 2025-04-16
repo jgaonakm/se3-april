@@ -1,8 +1,84 @@
 {
-  "openapi": "3.0.1",
   "info": {
     "title": "animal-api",
     "version": "1.0"
+  },
+  "openapi": "3.0.1",
+  "components": {
+    "schemas": {
+      "Animal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "lng": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "phylum": {
+            "type": "string",
+            "nullable": true
+          },
+          "className": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "string",
+            "nullable": true
+          },
+          "family": {
+            "type": "string",
+            "nullable": true
+          },
+          "genus": {
+            "type": "string",
+            "nullable": true
+          },
+          "subgenus": {
+            "type": "string",
+            "nullable": true
+          },
+          "specie": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "area": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "biologicalGroup": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   },
   "paths": {
     "/animals": {
@@ -15,24 +91,208 @@
             "description": "Success"
           }
         },
-        "operationId": "15fb6571-a0c3-4ef9-9c42-4419f7d21e55",
+        "operationId": "b2c45b38-0d02-4465-b5fd-299b6ef79397",
+        "summary": "Get all animals. It could take a while!!"
+      },
+      "post": {
+        "tags": [
+          "Animal"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "ef4d6c5f-62dc-4054-991a-15d62cc7a1f8"
+      }
+    },
+    "/animals/class/aves": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get all animals of class \"Aves\"",
+        "description": "",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://getting-started.zuplo.io"
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
             }
           },
           "policies": {
-            "inbound": [],
-            "outbound": []
+            "inbound": []
           }
-        }
+        },
+        "operationId": "70c7b4b9-be22-41d1-90fb-112d1d0ddefb"
       }
     },
-    "/animals/{size}": {
+    "/animals/class/{group}": {
+      "trace": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "61c663e3-d27a-4d66-bab9-5564bd11a534"
+      }
+    },
+    "/animals/{id}": {
+      "get": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "d1f50387-1d79-48d1-a63c-7b40c27e1dbc"
+      },
+      "put": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "354a9767-d467-4aef-8705-12aada648456"
+      },
+      "delete": {
+        "tags": [
+          "Animal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "079a2eae-0adf-4972-bc53-d4ae6779dff2"
+      }
+    },
+    "/animals/subset/{size}": {
       "get": {
         "tags": [
           "Animal"
@@ -54,21 +314,7 @@
             "description": "Success"
           }
         },
-        "operationId": "a6c61aa5-46c4-4f4c-bc07-a496ed2c6b13",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://getting-started.zuplo.io"
-            }
-          },
-          "policies": {
-            "inbound": [],
-            "outbound": []
-          }
-        }
+        "operationId": "50a7eb0a-6e5e-46ef-81b3-952ce43e490d"
       }
     },
     "/": {
@@ -88,22 +334,8 @@
             }
           }
         },
-        "operationId": "196e1b2a-1d96-4d69-aacb-73bf41e5172a",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://getting-started.zuplo.io"
-            }
-          },
-          "policies": {
-            "inbound": []
-          }
-        }
+        "operationId": "a24557db-52f4-40a9-b5ce-31eab2ccabb7"
       }
     }
-  },
-  "components": {}
+  }
 }
