@@ -84,7 +84,8 @@
     "/animals": {
       "get": {
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "responses": {
           "200": {
@@ -92,11 +93,25 @@
           }
         },
         "operationId": "b2c45b38-0d02-4465-b5fd-299b6ef79397",
-        "summary": "Get all animals. It could take a while!!"
+        "summary": "Get all animals. It could take a while!!",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       },
       "post": {
         "tags": [
-          "Animal", "Manage"
+          "Animal",
+          "Manage"
         ],
         "requestBody": {
           "content": {
@@ -113,7 +128,20 @@
           }
         },
         "operationId": "ef4d6c5f-62dc-4054-991a-15d62cc7a1f8",
-        "summary": "Create a new animal"
+        "summary": "Create a new animal",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       }
     },
     "/animals/class/aves": {
@@ -131,7 +159,8 @@
           }
         },
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "responses": {
           "200": {
@@ -156,7 +185,8 @@
           }
         },
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "responses": {
           "200": {
@@ -181,7 +211,8 @@
           }
         },
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "responses": {
           "200": {
@@ -206,7 +237,8 @@
           }
         },
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "responses": {
           "200": {
@@ -219,7 +251,8 @@
     "/animals/class/{class}": {
       "get": {
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "parameters": [
           {
@@ -239,13 +272,27 @@
         },
         "operationId": "61c663e3-d27a-4d66-bab9-5564bd11a534",
         "x-internal": true,
-        "summary": "Get all animals of a class"
+        "summary": "Get all animals of a class",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       }
     },
     "/animals/{id}": {
       "get": {
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "parameters": [
           {
@@ -263,16 +310,30 @@
           "200": {
             "description": "Success"
           },
-          "404":{
+          "404": {
             "description": "Animal with provided ID not found"
           }
         },
         "operationId": "d1f50387-1d79-48d1-a63c-7b40c27e1dbc",
-        "summary": "Get single animal"
+        "summary": "Get single animal",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       },
       "put": {
         "tags": [
-          "Animal", "Manage"
+          "Animal",
+          "Manage"
         ],
         "parameters": [
           {
@@ -301,11 +362,25 @@
           }
         },
         "operationId": "354a9767-d467-4aef-8705-12aada648456",
-        "summary": "Update an animal"
+        "summary": "Update an animal",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       },
       "delete": {
         "tags": [
-          "Animal", "Manage"
+          "Animal",
+          "Manage"
         ],
         "parameters": [
           {
@@ -325,13 +400,27 @@
           }
         },
         "operationId": "079a2eae-0adf-4972-bc53-d4ae6779dff2",
-        "summary": "Delete an animal"
+        "summary": "Delete an animal",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       }
     },
     "/animals/subset/{size}": {
       "get": {
         "tags": [
-          "Animal", "Retrieve"
+          "Animal",
+          "Retrieve"
         ],
         "parameters": [
           {
@@ -351,7 +440,20 @@
           }
         },
         "operationId": "50a7eb0a-6e5e-46ef-81b3-952ce43e490d",
-        "summary": "Get a subset of animals"
+        "summary": "Get a subset of animals",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        }
       }
     },
     "/": {
@@ -372,7 +474,21 @@
           }
         },
         "operationId": "a24557db-52f4-40a9-b5ce-31eab2ccabb7",
-        "x-internal": true
+        "x-internal": true,
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "summary": "Home (not used)"
       }
     }
   }
