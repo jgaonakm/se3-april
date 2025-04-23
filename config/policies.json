@@ -76,6 +76,37 @@
       },
       "name": "xml-to-json-outbound-1",
       "policyType": "xml-to-json-outbound"
+    },
+    {
+      "handler": {
+        "export": "ReplaceStringOutboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "match": "null",
+          "mode": "string",
+          "replaceWith": "-1"
+        }
+      },
+      "name": "replace-string-outbound",
+      "policyType": "replace-string-outbound"
+    },
+    {
+      "handler": {
+        "export": "XmlToJsonOutboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "attributeNamePrefix": "@_",
+          "ignoreAttributes": true,
+          "ignoreDeclarations": true,
+          "ignoreProcessingInstructions": true,
+          "parseOnStatusCodes": "200-299",
+          "removeNSPrefix": true,
+          "textNodeName": "#text",
+          "trimValues": true
+        }
+      },
+      "name": "xml-to-json-outbound-2",
+      "policyType": "xml-to-json-outbound"
     }
   ]
 }

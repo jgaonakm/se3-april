@@ -1,41 +1,337 @@
 {
-  "openapi": "3.0.1",
   "info": {
-    "title": "animal-api",
+    "title": "The Awesome Animal API",
     "version": "1.0"
+  },
+  "openapi": "3.0.1",
+  "components": {
+    "schemas": {
+      "Animal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lat": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "lng": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "phylum": {
+            "type": "string",
+            "nullable": true
+          },
+          "className": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "string",
+            "nullable": true
+          },
+          "family": {
+            "type": "string",
+            "nullable": true
+          },
+          "genus": {
+            "type": "string",
+            "nullable": true
+          },
+          "subgenus": {
+            "type": "string",
+            "nullable": true
+          },
+          "specie": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "area": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "biologicalGroup": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
   },
   "paths": {
     "/animals": {
       "get": {
         "tags": [
-          "Animal"
+          "Animal", "Retrieve"
         ],
         "responses": {
           "200": {
             "description": "Success"
           }
         },
-        "operationId": "15fb6571-a0c3-4ef9-9c42-4419f7d21e55",
+        "operationId": "b2c45b38-0d02-4465-b5fd-299b6ef79397",
+        "summary": "Get all animals. It could take a while!!"
+      },
+      "post": {
+        "tags": [
+          "Animal", "Manage"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "ef4d6c5f-62dc-4054-991a-15d62cc7a1f8",
+        "summary": "Create a new animal"
+      }
+    },
+    "/animals/class/aves": {
+      "get": {
+        "summary": "Get all animals of class \"Aves\"",
+        "description": "",
         "x-zuplo-route": {
           "corsPolicy": "none",
           "handler": {
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "https://getting-started.zuplo.io"
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
             }
-          },
-          "policies": {
-            "inbound": [],
-            "outbound": []
           }
-        }
+        },
+        "tags": [
+          "Animal", "Retrieve"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "70c7b4b9-be22-41d1-90fb-112d1d0ddefb"
       }
     },
-    "/animals/{size}": {
+    "/animals/class/amphibia": {
+      "get": {
+        "summary": "Get all animals of class \"Amphibia\"",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          }
+        },
+        "tags": [
+          "Animal", "Retrieve"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "b78aee23-d5d9-4cca-85eb-c61aa9ebbc54"
+      }
+    },
+    "/animals/class/reptilia": {
+      "get": {
+        "summary": "Get all animals of class \"Reptilia\"",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          }
+        },
+        "tags": [
+          "Animal", "Retrieve"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "46f26384-ef3d-4aaa-89a7-d267e806e231"
+      }
+    },
+    "/animals/class/mammalia": {
+      "get": {
+        "summary": "Get all animals of class \"Mammalia\"",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
+            }
+          }
+        },
+        "tags": [
+          "Animal", "Retrieve"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "1f674c19-8418-4fd9-a16e-b28cc7eac845"
+      }
+    },
+    "/animals/class/{class}": {
       "get": {
         "tags": [
-          "Animal"
+          "Animal", "Retrieve"
+        ],
+        "parameters": [
+          {
+            "name": "group",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "61c663e3-d27a-4d66-bab9-5564bd11a534",
+        "x-internal": true,
+        "summary": "Get all animals of a class"
+      }
+    },
+    "/animals/{id}": {
+      "get": {
+        "tags": [
+          "Animal", "Retrieve"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404":{
+            "description": "Animal with provided ID not found"
+          }
+        },
+        "operationId": "d1f50387-1d79-48d1-a63c-7b40c27e1dbc",
+        "summary": "Get single animal"
+      },
+      "put": {
+        "tags": [
+          "Animal", "Manage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Animal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "354a9767-d467-4aef-8705-12aada648456",
+        "summary": "Update an animal"
+      },
+      "delete": {
+        "tags": [
+          "Animal", "Manage"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "operationId": "079a2eae-0adf-4972-bc53-d4ae6779dff2",
+        "summary": "Delete an animal"
+      }
+    },
+    "/animals/subset/{size}": {
+      "get": {
+        "tags": [
+          "Animal", "Retrieve"
         ],
         "parameters": [
           {
@@ -54,21 +350,8 @@
             "description": "Success"
           }
         },
-        "operationId": "a6c61aa5-46c4-4f4c-bc07-a496ed2c6b13",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://getting-started.zuplo.io"
-            }
-          },
-          "policies": {
-            "inbound": [],
-            "outbound": []
-          }
-        }
+        "operationId": "50a7eb0a-6e5e-46ef-81b3-952ce43e490d",
+        "summary": "Get a subset of animals"
       }
     },
     "/": {
@@ -88,22 +371,9 @@
             }
           }
         },
-        "operationId": "196e1b2a-1d96-4d69-aacb-73bf41e5172a",
-        "x-zuplo-route": {
-          "corsPolicy": "none",
-          "handler": {
-            "export": "urlForwardHandler",
-            "module": "$import(@zuplo/runtime)",
-            "options": {
-              "baseUrl": "https://getting-started.zuplo.io"
-            }
-          },
-          "policies": {
-            "inbound": []
-          }
-        }
+        "operationId": "a24557db-52f4-40a9-b5ce-31eab2ccabb7",
+        "x-internal": true
       }
     }
-  },
-  "components": {}
+  }
 }

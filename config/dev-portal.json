@@ -2,7 +2,15 @@
   "$schema": "https://cdn.zuplo.com/schemas/dev-portal.json",
   "enabled": true,
   "enableAuthentication": true,
+  "faviconUrl": "https://static-assets.us-lax-1.linodeobjects.com/animal-api.ico",
+  "pageTitle": "Awesome Animal API",
+  "generateExamples": true,
+  "enableMonetization": true,
   "monetization": {
-    "provider": "stripe"
-  }
+    "provider": "stripe",
+    "pricingTableId": "prctbl_1RHC3P4ZqA06J3V42JpHn25o",
+    "secretKey": "$env(STRIPE)",
+    "publishableKey": "pk_test_51RCBUd4ZqA06J3V491XAh3G3N1TIstzV8vB2sPhkkUOxNaElau5P7ZUoYjGWowIHfFxAnfrDCywx2cbSbBGCsMUQ00z4WK0Jr1"
+  },
+  "requireAuthentication": true
 }
