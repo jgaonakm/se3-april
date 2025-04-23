@@ -16,6 +16,14 @@ Here are some more fun facts about frogs:
 - They shed their skin: Frogs regularly shed their skin, and they often eat the shed skin. 
 
 
+
+## Labore et Dolore
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
 ```ts
 const response = await fetch("https://echo.zuplo.io", {
   headers: {
@@ -27,11 +35,6 @@ const data = await response.json();
 console.log(data);
 ```
 
-## Labore et Dolore
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 culpa qui officia deserunt mollit anim id est laborum.
