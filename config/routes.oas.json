@@ -104,7 +104,10 @@
             }
           },
           "policies": {
-            "inbound": []
+            "inbound": [
+              "api-key-inbound",
+              "rate-limit-inbound"
+            ]
           }
         }
       },
@@ -139,7 +142,9 @@
             }
           },
           "policies": {
-            "inbound": []
+            "inbound": [
+              "ab-test-inbound"
+            ]
           }
         }
       }
@@ -182,6 +187,14 @@
             "options": {
               "baseUrl": "https://animal-api-team-mobile.lke363836.akamai-apl.net/"
             }
+          },
+          "policies": {
+            "outbound": [
+              "xml-to-json-outbound"
+            ],
+            "inbound": [
+              "set-accept-xml-inbound"
+            ]
           }
         },
         "tags": [
@@ -451,7 +464,12 @@
             }
           },
           "policies": {
-            "inbound": []
+            "inbound": [
+              "set-accept-xml-inbound"
+            ],
+            "outbound": [
+              "xml-to-json-outbound"
+            ]
           }
         }
       }
@@ -489,6 +507,36 @@
           }
         },
         "summary": "Home (not used)"
+      }
+    },
+    "/animals/class/amphibia/funfacts": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Fun facts about amphibia class animals",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlRewriteHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "rewritePattern": "https://api.openai.com/v1/responses"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "rate-limit-inbound",
+              "change-method-inbound",
+              "clear-headers-inbound",
+              "set-openaiauth-inbound",
+              "create-body-inbound"
+            ]
+          }
+        },
+        "operationId": "01038a0a-6718-4d46-9e2c-fde0e6c66c4d"
       }
     }
   }

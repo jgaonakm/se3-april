@@ -1,9 +1,7 @@
 # AWESOME ANIMALS API!!!
 
-You can write full markdown in these documents. Syntax highlighting and full
-Github Flavored markdown are supported. To learn more about customizing the
-documentation of this developer portal
-[see the documentation](https://zuplo.com/docs/developer-portal/adding-pages).
+This is the best source of information for **bio-tourism**! Our API can help you find all species that have been spoted in Mexico, 
+providing you with details about the city and state, and, for some cases, the area and the LatLong!
 
 ## FROGS
 
